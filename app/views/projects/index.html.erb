@@ -1,0 +1,10 @@
+<% if logged_in? %>
+  <h1> All my Projects </h1>
+  <% @projects.each do |project| %>
+    <%= project.name%>
+    <%= project.amount%>
+    <%= project.author_id%>
+  <% end %>
+<% else %>
+<%= link_to 'Sign Up',  new_user_path %>
+ <% end %>

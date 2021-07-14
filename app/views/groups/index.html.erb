@@ -1,0 +1,13 @@
+<% if logged_in? %>
+  <h1> All my Groups </h1>
+  <% @groups.each do |group| %>
+    <%= group.name%>
+    <%= group.amount%>
+    <%= group.author_id%>
+  <% end %>
+  <br>
+  <%= link_to 'Add new group', new_group_path %>
+<% else %>
+<%= link_to 'Sign in',  new_session_path %>
+<%= link_to 'Sign Up',  new_user_path %>
+ <% end %>

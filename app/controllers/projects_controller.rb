@@ -3,10 +3,6 @@ class ProjectsController < ApplicationController
         @projects = Project.all
       end
     
-      def show
-        @project = project.find(params[:id])
-      end
-    
       def new
         @project = current_user.projects.build
       end
@@ -15,7 +11,7 @@ class ProjectsController < ApplicationController
         @project = current_user.projects.build(project_params)
     
         if @project.save
-          redirect_to @project
+          redirect_to root_path
         else
           render :new
         end

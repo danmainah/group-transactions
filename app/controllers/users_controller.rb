@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
     if @user.save
       log_in @user
-      redirect_to root_path, notice: 'User account successifully created.'
+      redirect_to root_path, notice: 'User account successfully created.'
     else
       redirect_to signup_path, notice: @user.errors[:username].first
     end

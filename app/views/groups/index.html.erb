@@ -1,9 +1,9 @@
 <% if logged_in? %>
   <h1> All my Groups </h1>
   <% @groups.each do |group| %>
+    <%= image_tag  group.icon ,style: 'width: 40px; height: 40px;'%>
     <%= group.name%>
-    <%= group.amount%>
-    <%= group.author_id%>
+    <%= group.user.username%>
   <% end %>
   <br>
   <%= link_to 'Add new group', new_group_path %>

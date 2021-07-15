@@ -1,0 +1,13 @@
+
+  <h1> Xtra Projects </h1>
+  <% @projects.each do |project| %>
+   <% if !project.user.blank? %>
+    <%= project.name%>
+    <%= project.amount%>
+    <%= project.user.username%>
+  <% end %>
+    <%end%>
+  <br>
+  
+ <%= link_to  groups_path %>
+<br>

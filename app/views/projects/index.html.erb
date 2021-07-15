@@ -1,9 +1,11 @@
 <% if logged_in? %>
   <h1> All my Projects </h1>
   <% @projects.each do |project| %>
+   <% if !project.user.blank? %>
     <%= project.name%>
     <%= project.amount%>
-    <%= project.author_id%>
+    <%= project.user.username%>
+  <% end %>
   <% end %>
   <br>
   <%= link_to 'Add new Project', new_project_path %>
@@ -14,8 +16,3 @@
 
  <%= link_to  groups_path %>
 <br>
-<%= render 'helper/icon' %>
-<%= render 'helper/icon1' %>
-<%= render 'helper/icon2' %>
-<%= render 'helper/icon3' %>
-<%= render 'helper/icon4' %>

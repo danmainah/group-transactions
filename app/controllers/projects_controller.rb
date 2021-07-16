@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
       end
     
       def create
-           @group = Group.find(params[:group_id]) 
+           @group = Group.find(params[:id]) 
         if @group
            @project = current_user.projects.build(project_params)
            @group.projects << @project
@@ -40,7 +40,7 @@ class ProjectsController < ApplicationController
       end
     
       private
-        def project_params
-          params.require(:project).permit(:name, :amount)
-        end
+      def project_params
+        params.require(:project).permit(:name, :amount)
+      end
 end

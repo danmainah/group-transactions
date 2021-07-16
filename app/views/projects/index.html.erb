@@ -1,10 +1,10 @@
 <% if logged_in? %>
 <div class= "bg-grey">
-  <h3 class= "text-white-light d-flex justify-content-center"> All my Extra Projects </h3>
+  <h3 class= "text-white-light d-flex justify-content-center"> My Projects </h3>
    <ul class="list-group">
    <li>
   <% @projects.each do |project| %>
-  <% if project.groups.length == 0 %>
+  <% if project.groups.length > 0 %>
   <div class= "row bg-white mt-1 ">
    <% project.groups.each  do |g| %>
    <% if g.icon.attached? %>
@@ -26,8 +26,9 @@
   <% end %>
   </ul>
   <br>
-  <div class="d-grid gap-2">
-  <%= link_to 'Add new Extra Project', new_project_path, class: 'btn btn-primary justify-text-center' %>
+  <div class=" d-grid gap-2 ol-6 mx-auto">
+  <%= link_to 'Add Extra Project', new_project_path, class: 'd-flex justify-content-center  bg-primary text-light' %>
+   <%= link_to 'Add Group Project', group_path,class: "d-flex justify-content-center  bg-primary text-light " %>
   </div>
   <br>
   <div class="d-grid gap-2 col-6 mx-auto">

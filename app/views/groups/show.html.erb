@@ -1,7 +1,9 @@
-Project: <%= @group.name%>
+<h3 class= "text-white-light d-flex justify-content-center"> Project: <%= @group.name%> </h3>
+<div class= "row  d-flex align-items-center  bg-primary text-light ">
 <% @projects.each do |project| %>
   <li><%= project.name %> </li>
 <% end%>
+
 <%= form_with model: [ @group, @group.projects.build ] do |form| %>
   <p>
     <%= form.label :name %><br>

@@ -1,17 +1,24 @@
 <% if logged_in? %>
-  <h1> All my Groups </h1>
+    <h3 class= " d-flex justify-content-center"> My Groups </h3>
+    <ul>
+    <li>
+    <div class= "row bg-white mt-1 ">
   <% @groups.each do |group| %>
-    <%= image_tag  group.icon ,style: 'width: 40px; height: 40px;'%>
-    <%= group.name%>
-    <%= group.user.username%>
-     <a href="/groups/<%= group.id %>">Add Group Project</a>
-  <% end %>
-  <br>
-  <%= link_to 'Add new group', new_group_path %>
-    
- 
+    <%= image_tag  group.icon , class: 'float-md-start me-3' ,style: 'width: 80px; height: 80px;' %>
+          <%= group.name%>
+          Created by <%= group.user.username%>
+          <a href="/groups/<%= group.id %>" >Add Group Project</a>
+          </p>   
+        <% end %>
+      <div>
+  </div>
+  </li>
+ </ul>
+    <%= link_to 'Add new group', new_group_path,class: " d-flex justify-content-center col-8 bg-primary text-light" %>
 
 <% else %>
-<%= link_to 'Sign in',  new_session_path %>
-<%= link_to 'Sign Up',  new_user_path %>
+<div class="row d-flex align-items-center justify-content-around bg-light " style="height:250px;">
+<%= link_to 'Sign in',  new_session_path , class: ' col-7 p-2  btn btn-primary border-bottom'%>
+<%= link_to 'Sign Up',  new_user_path ,class: ' col-6 p-2 btn btn-primary mt-n10 ' %>
+</div>
  <% end %>

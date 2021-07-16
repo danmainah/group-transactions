@@ -1,7 +1,4 @@
 class UsersController < ApplicationController
-    before_action :logged_in_user, only: %i[index edit update destroy]
-
-    before_action :logged_in_user, only: %i[index edit update destroy]
 
   def show; end
 
@@ -20,15 +17,6 @@ class UsersController < ApplicationController
     end
   end
 
-  private
-
-  def set_user
-    @user = User.find(params[:id])
-  end
-
-  def user_params
-    params.require(:user).permit(:username)
-  end
     private
   
     def user_params

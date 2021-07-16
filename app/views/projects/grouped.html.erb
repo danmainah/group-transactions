@@ -21,8 +21,9 @@
   <% end %>
 <% end %>
 <% end %>
-
- <%= link_to 'Add new group', new_group_path,class: " d-flex justify-content-center col-8 bg-primary text-light" %>
+ <%= link_to 'Add New Project', new_project_path, class: 'd-flex justify-content-center  bg-primary text-light' %>
+ <br>
+<%= link_to 'Back', root_path, class: 'btn btn-primary d-flex justify-content-center' %> 
 <% else %>
 <div class="row d-flex align-items-center justify-content-around bg-light " style="height:250px;">
 <%= link_to 'Sign in',  new_session_path , class: ' col-7 p-2  btn btn-primary border-bottom'%>

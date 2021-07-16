@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
      def  grouped
        @projects = Project.includes(:groups)
      end
-
+    
       def new
         @project = current_user.projects.build
       end

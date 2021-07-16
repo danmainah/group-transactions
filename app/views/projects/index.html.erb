@@ -27,12 +27,10 @@
   </ul>
   <br>
   <div class=" d-grid gap-2 ol-6 mx-auto">
-  <%= link_to 'Add Extra Project', new_project_path, class: 'd-flex justify-content-center  bg-primary text-light' %>
-   <%= link_to 'Add Group Project', group_path,class: "d-flex justify-content-center  bg-primary text-light " %>
-  </div>
+  <%= link_to 'Add New Project', new_project_path, class: 'd-flex justify-content-center  bg-primary text-light' %>
   <br>
   <div class="d-grid gap-2 col-6 mx-auto">
-    <%= link_to 'Back', groups_path, class: 'btn btn-primary ' %> 
+    <%= link_to 'Back', root_path, class: 'btn btn-primary ' %> 
   </div>
  
 <% else %>

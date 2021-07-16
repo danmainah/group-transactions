@@ -8,4 +8,5 @@ Rails.application.routes.draw do
     resources :projects
   end
  get '/grouped', to: 'projects#grouped'
+ get '/addition', to: 'groups#addition'
  end

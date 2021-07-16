@@ -1,18 +1,43 @@
 <% if logged_in? %>
-  <h1> All my Projects </h1>
+<div class= "">
+  <h1> All my Extra Projects </h1>
+   <ul class="list-group">
+   <li>
   <% @projects.each do |project| %>
-   <% if !project.user.blank? %>
-    <%= project.name%>
-    <%= project.amount%>
-    <%= project.user.username%>
+  <% if project.groups.length == 0 %>
+   <li class="list-group-item list-group-item-action list-group-item-secondary">
+   <% project.groups.each  do |g| %>
+   <% if g.icon.attached? %>
+   <%= image_tag g.icon , style: 'width: 60px; height: 60px;'%>
+   <% end %>
+   <% end %>
+   <% if !project.author.blank? %>
+   Project name: <%= project.name%>
+     <br>
+    Time taken: <%= project.amount%> 
+    created by: <%= project.author.username%>
+    </li>
+    <li class="list-group-item list-group-item-action list-group-item-secondary">
+   Created at: <%= project.created_at%>
+   </li>
+   </li>
   <% end %>
   <% end %>
+  <% end %>
+  </ul>
   <br>
-  <%= link_to 'Add new Project', new_project_path %>
+  <div class="d-grid gap-2">
+  <%= link_to 'Add new Project', new_project_path, class: 'btn btn-primary justify-text-center' %>
+  </div>
+  <br>
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <%= link_to 'Back', groups_path, class: 'btn btn-primary ' %> 
+  </div>
+  <a href="/grouped ">Afbdhdfh</a>
+ 
 <% else %>
 <%= link_to 'Sign in',  new_session_path %>
 <%= link_to 'Sign Up',  new_user_path %>
  <% end %>
 
- <%= link_to  groups_path %>
-<br>
+ </div>

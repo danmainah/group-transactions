@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :users
   resources :projects
   resources :sessions
-  resources :groups
-  resources :extras
-end
+  resources :groups do 
+    resources :projects
+  end
+ get '/grouped', to: 'projects#grouped'
+ end

@@ -1,0 +1,21 @@
+<%   @projects.each do |project| %>
+<% if project.groups.length > 0 %>
+   <li class="list-group-item list-group-item-action list-group-item-secondary">
+   <% project.groups.each  do |g| %>
+   <% if g.icon.attached? %>
+   <%= image_tag g.icon , style: 'width: 60px; height: 60px;'%>
+   <% end %>
+   <% end %>
+   <% if !project.author.blank? %>
+   Project name: <%= project.name%>
+     <br>
+    Time taken: <%= project.amount%> 
+    created by: <%= project.author.username%>
+    </li>
+    <li class="list-group-item list-group-item-action list-group-item-secondary">
+   Created at: <%= project.created_at%>
+   </li>
+   </li>
+  <% end %>
+<% end %>
+<% end %>

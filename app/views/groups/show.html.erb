@@ -1,0 +1,17 @@
+Project: <%= @group.name%>
+<% @projects.each do |project| %>
+  <li><%= project.name %> </li>
+<% end%>
+<%= form_with model: [ @group, @group.projects.build ] do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+  <p>
+    <%= form.label :amount %><br>
+    <%= form.number_field :amount %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

@@ -2,18 +2,26 @@ class ProjectsController < ApplicationController
     def index
         @projects = Project.all
       end
-     def show;end
+     def  grouped
+       @projects = Project.includes(:groups)
+     end
+
       def new
         @project = current_user.projects.build
       end
     
       def create
-        @project = current_user.projects.build(project_params)
-    
-        if @project.save
-          redirect_to root_path
+           @group = Group.find(params[:group_id]) 
+        if @group
+           @project = current_user.projects.build(project_params)
+           @group.projects << @project
         else
-          render :new
+            @project = current_user.projects.build(project_params)
+          if @project.save
+            render root_path
+          else
+             render :new
+          end
         end
       end
     

@@ -3,6 +3,7 @@
   <h3 class= "text-white-light d-flex justify-content-center"> My Projects </h3>
    <ul class="list-group">
    <li>
+    <%= @sum %>
   <% @projects.each do |project| %>
   <% if project.groups.length > 0 %>
   <div class= "row bg-white mt-1 ">

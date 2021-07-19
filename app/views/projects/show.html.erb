@@ -7,17 +7,23 @@
                      Created at: <%= @project.created_at.to_s(:rfc822) %>
                      </small></p>
                       <p class= "card-text title"> 
-                       Created at: <%= @project.amount %> 
+                       Created within: <%= @project.amount %> Hrs 
                       </p>
               </div>  
           </div>
+          <% if current_user == true %>
            <%= link_to 'Edit', edit_project_path(@project), class: "btn btn-success btn-lg btn-block " %>
             <%= link_to "Destroy", project_path(@project), class: "btn btn-danger btn-lg btn-block ",
                   method: :delete,
                   data: { confirm: "Are you sure?" } %> 
+            <% end %>
       </div>
       
 </div>  
+
+<%= render 'comment' %>
+<%= render 'reviews/form' %>
+
 <%= link_to 'Back', projects_path, class: "btn btn-success btn-lg btn-block " %>
 
   

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :groups do 
     resources :projects
   end
+  resources :projects do
+    resources :reviews
+  end
  get '/grouped', to: 'projects#grouped'
  get '/addition', to: 'groups#addition'
  end

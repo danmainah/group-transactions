@@ -1,45 +1,62 @@
 <% if logged_in? %>
-<div class= "bg-grey">
-  <h3 class= "text-white-light d-flex justify-content-center"> My Projects </h3>
-   <ul class="list-group">
-   <li>
-    <%= @sum %>
-  <% @projects.each do |project| %>
-  <% if project.groups.length > 0 %>
-  <div class= "row bg-white mt-1 ">
-   <% project.groups.each  do |g| %>
-   <% if g.icon.attached? %>
-   <%= image_tag g.icon ,class: 'float-md-start me-4' ,style: 'width: 60px; height: 60px;'%>
-   <% end %>
-   <% end %>
-   <div class= "col-7 text-dark ">
-   <% if !project.author.blank? %>
-   <p class= "d-flex justify-content-between text-end align-items-center mt-2">
-    <%= project.name%>
-      took 
-    <%= project.amount%>Hrs 
-     </p>
-      <small class= "d-flex align-item-center mb-2">created by: <%= project.author.username%></small>
+<nav class="card py-2 px-3 mb-4">
+  <h2 class="d-flex justify-content-between align-items-center w-100">
+    <div>
+      Time Spent
+    </div>
+    <div>
+       <%= @sum %> Hrs
+    </div>
+  </h2>
+</nav>
+<div>
+    <% @projects.each do |project| %>
+     <% if project.groups.length > 0 %>
+     <div class="card mb-2  d-flex flex-row py-2 px-3 ">
+        <div class="mr-2 d-flex align-items-center">
+            <% project.groups.each  do |g| %>
+            <% if g.icon.attached? %>
+               <%= image_tag g.icon ,class: 'float-md-start me-4' ,style: 'width: 60px; height: 60px;'%>
+             <% end %>
+           <% end %>
+         </div>
+    <div class="d-flex justify-content-between w-100">
+      <div class="card-body">
+              <% if !project.author.blank? %>
+          <h5 class="card-title"><%= project.name %></h5>
+          <span class="badge badge-dark">
+                <%= project.author.username %>
+          </span>
+          <p class="card-text"><small class="text-muted">
+                 <%= project.created_at.to_s(:rfc822) %>
+          </small></p>
+          <p class="card-text"><small class="text-muted">
+                <%= link_to "View", project_path(project) %>
+          </small></p>
+        </div>
+        <div> 
+            <%= project.amount %>Hrs  
+        </div>
+        <% end %>
+       
+        </div>
    </div>
-    <li><%= link_to "View", project_path(project) %></li>
-   </div>
-  <% end %>
-  <% end %>
-  <% end %>
-  </ul>
-  <br>
-  <div class=" d-grid gap-2 ol-6 mx-auto">
-  <%= link_to 'Add New Project', new_project_path, class: 'd-flex justify-content-center  bg-primary text-light' %>
-  <br>
-  <div class="d-grid gap-2 col-6 mx-auto">
-    <%= link_to 'Back', root_path, class: 'btn btn-primary ' %> 
-  </div>
- 
+</div>
+<div>
+ <% end %>
+<% end %>
+ <%= link_to 'Add new Project', new_project_path, class: "btn btn-success btn-lg " %>
 <% else %>
+<div class="row d-flex align-items-center bg-light" style= " height:500px; " >
+ <div class="card-body text-center">
+      <h2 class="card-title fst-italic fst-bold text-secondary" >
+        Welcome!!
+      </h2>
+    </div>
+  </div>
 <div class="row d-flex align-items-center justify-content-around bg-light " style="height:250px;">
 <%= link_to 'Sign in',  new_session_path , class: ' col-7 p-2  btn btn-primary border-bottom'%>
-<%= link_to 'Sign Up',  new_user_path ,class: ' col-6 p-2 btn btn-primary mt-n10 ' %>
-</div>
- <% end %>
-
+<%= link_to 'Sign Up',  new_user_path ,class: ' col-6 p-2 btn  mt-n10 ' %>
  </div>
+
+ <% end %>

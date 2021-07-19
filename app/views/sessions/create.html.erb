@@ -1,10 +1,18 @@
-<h1>Login</h1>
-<%= form_tag sessions_path do |form| %>
-  <div class=”field”>
-    <%= label_tag :username %>
-    <%= text_field_tag :username %>
+<div class="row justify-content-center h-100">
+  <div class="col-12 col-lg-7 mt-lg-5">
+    <div class="card p-3">
+      <h2>Log in</h2>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        <div class="form-group">
+          <%= f.label :username %><br />
+          <%= f.text_field :username, autofocus: true, autocomplete: "username", class: 'form-control' %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Log in", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
   </div>
-   <div class=”actions”>
-    <%= submit_tag 'Login' %>
-  </div>
-<% end %>
+</div>

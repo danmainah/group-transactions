@@ -1,11 +1,25 @@
-<h1><%= @project.name %></h1>
-
-<p><%= @project.amount %></p>
-
-<ul>
-  <li><%= link_to "Edit", edit_project_path(@project) %></li>
-  <%= link_to 'Back', projects_path %>
-  <li><%= link_to "Destroy", project_path(@project),
+<div class="d-flex justify-content-between w-100">
+      <div class="card-body">
+         <h3 class= "text-white-light d-flex justify-content-center"> Project: <%= @project.name%>  </h3>
+          <div class="d-flex justify-content-between w-100">
+              <div class="card-body">
+                    <p class="card-text"><small class="text-muted">
+                     Created at: <%= @project.created_at.to_s(:rfc822) %>
+                     </small></p>
+                      <p class= "card-text title"> 
+                       Created at: <%= @project.amount %> 
+                      </p>
+              </div>  
+          </div>
+           <%= link_to 'Edit', edit_project_path(@project), class: "btn btn-success btn-lg btn-block " %>
+            <%= link_to "Destroy", project_path(@project), class: "btn btn-danger btn-lg btn-block ",
                   method: :delete,
-                  data: { confirm: "Are you sure?" } %></li>
-</ul>
+                  data: { confirm: "Are you sure?" } %> 
+      </div>
+      
+</div>  
+<%= link_to 'Back', projects_path, class: "btn btn-success btn-lg btn-block " %>
+
+  
+
+

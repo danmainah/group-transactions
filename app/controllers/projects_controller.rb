@@ -11,13 +11,16 @@ class ProjectsController < ApplicationController
       def new
         @project = current_user.projects.build
       end
-    
+      
       def create 
-        if @group = Group.find(params[:group_id]) 
+        id = params[:group_id] || params[:id]
+        if  id == nil
+            @project = current_user.projects.build(project_params)
+        else
+           @group = Group.find(id) 
            @project = current_user.projects.build(project_params)
            @group.projects << @project
-        end
-            @project = current_user.projects.build(project_params)
+         end
           if @project.save
             redirect_to root_path and return
           else

@@ -18,6 +18,7 @@
      </p>
       <small class= "d-flex align-item-center mb-2">created by: <%= project.author.username%></small>
    </div>
+   <li><%= link_to "View", project_path(project) %></li>
    </div>
   <% end %>
 <% end %>

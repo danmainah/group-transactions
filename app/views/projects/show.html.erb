@@ -1,0 +1,8 @@
+<h1><%= @project.name %></h1>
+
+<p><%= @project.amount %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_project_path(@project) %></li>
+  <%= link_to 'Back', projects_path %>
+</ul>

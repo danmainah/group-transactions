@@ -8,6 +8,10 @@ class ProjectsController < ApplicationController
        @sum = @projects.where(groups: nil).sum(:amount)
       
      end
+
+     def show
+      @project = Project.find(params[:id])
+     end
     
       def new
         @project = current_user.projects.build
@@ -41,6 +45,13 @@ class ProjectsController < ApplicationController
         else
           render :edit
         end
+      end
+
+      def destroy
+        @project = Project.find(params[:id])
+        @project.destroy
+    
+        redirect_to root_path and return
       end
     
       private

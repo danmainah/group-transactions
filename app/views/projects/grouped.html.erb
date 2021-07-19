@@ -11,9 +11,10 @@
 </nav>
 <div>
     <% @projects.each do |project| %>
+    <% if project.groups.length == 0 %>
      <div class="card mb-2  d-flex flex-row">
         <div class="mr-2 d-flex align-items-center">
-         <% if project.groups.length == 0 %>
+         
             <% project.groups.each  do |g| %>
             <% if g.icon.attached? %>
                <%= image_tag g.icon ,class: 'float-md-start me-4' ,style: 'width: 60px; height: 60px;'%>
@@ -38,11 +39,11 @@
             <%= project.amount %>Hrs
         </div>
         <% end %>
-        <% end %>
         </div>
    </div>
 </div>
 <div>
+ <% end %>
 <% end %>
  <%= link_to 'Add new Project', new_project_path, class: "btn btn-success btn-lg btn-block  d-flex justify-content-center" %>
  <br>

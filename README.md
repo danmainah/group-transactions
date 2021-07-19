@@ -25,7 +25,7 @@ Postgres: >=9.5
 ### To get a local copy up and running simply follow the next step.
 
 - In your local PC, open your terminal in the folder you would like to clone the project.
-- Clone the repo with the command: `git clone (copied link)`; like so: `git clone https://github.com/TedLivist/ror-social-scaffold.git`
+- Clone the repo with the command: `git clone (copied link)`; like so: `git clone https://github.com/danmainah/group-transactions`
 - Then run `bundle install` to install all the required dependencies
 - Then run `npm install`
 - Run `rails db:create`, then `rails db:migrate`
@@ -39,14 +39,6 @@ Postgres: >=9.5
 
 To run the test enter the command: `rpsec --format documentation`
 
-### Github Actions
-
-To make sure the linters' checks using Github Actions work properly, you should follow the next steps:
-
-1. On your recently forked repo, enable the GitHub Actions in the Actions tab.
-2. Create the `feature/branch` and push.
-3. Start working on your milestone as usual.
-4. Open a PR from the `feature/branch` when your work is done.
 
 ## Author
 
@@ -61,7 +53,6 @@ To make sure the linters' checks using Github Actions work properly, you should 
 
 Contributions, issues and feature requests are welcome!
 
-Feel free to check the [issues page](issues/).
 
 ## Credits
 Thanks to Mohammed Anwar of [Behance](https://www.behance.net/gallery/24796463/ZATTIX) for the amazing website design that this project is based on.

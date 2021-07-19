@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       log_in @user
       redirect_to root_path, notice: 'User account successfully created.'
     else
-      redirect_to signup_path, notice: @user.errors[:username].first
+      redirect_to new_user_path, notice: @user.errors[:username].first
     end
   end
 

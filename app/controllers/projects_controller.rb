@@ -27,8 +27,7 @@ class ProjectsController < ApplicationController
       @group.projects << @project
     end
     redirect_to root_path and return if @project.save
-
-    render :new
+      render :new
   end
 
   def edit

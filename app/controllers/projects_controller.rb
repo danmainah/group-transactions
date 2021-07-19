@@ -1,11 +1,12 @@
 class ProjectsController < ApplicationController
     def index
-        @projects = Project.all
-        @sum = @projects.includes(:groups).sum(:amount)
+        @projects = Project.includes(:groups)
+        @sum = @projects.where.not(groups: nil).sum(:amount)
       end
      def  grouped
        @projects = Project.includes(:groups)
-       @sum = @projects.where(:groups == 0 ).sum(:amount)
+       @sum = @projects.where(groups: nil).sum(:amount)
+      
      end
     
       def new

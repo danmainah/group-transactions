@@ -1,0 +1,12 @@
+<div class="row d-flex align-items-center  bg-primary " style="height:400px;">
+<h3 class= 'd-flex justify-content-center mt-0 sticky-top text-white'> Welcome To Projects</h3>
+<%= form_tag sessions_path do |form| %>
+  <div class="field d-flex justify-content-center text-white ”>
+    <%= label_tag :username %>
+    <%= text_field_tag :username %>
+  </div>
+   <div class='actions d-flex justify-content-center bg-primary mt-2'>
+    <%= submit_tag 'Login' %>
+  </div>
+<% end %>
+</div>

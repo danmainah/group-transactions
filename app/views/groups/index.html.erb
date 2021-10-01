@@ -1,0 +1,24 @@
+<% if logged_in? %>
+    <h3 class= " d-flex justify-content-center"> My Groups </h3>
+  <% @groups.each do |group| %>
+   <div class="card mb-2 p-3 d-flex flex-row">
+      <div class="mr-2 d-flex align-items-center">
+         <%= image_tag  group.icon , class: 'float-md-start me-3' ,style: 'width: 80px; height: 80px;' %>
+      </div>
+      <div class="w-100">
+        <div class="card-body">
+          <h5 class="card-title"><%= group.name %></h5>
+           <p class="card-text"><small class="text-muted">
+              Created at <%= group.created_at.to_s(:rfc822)%></small></p>
+            <a href="/groups/<%= group.id %>" >View Group Project</a>
+          </div>
+      </div>
+    </div>  
+    <% end %>
+    <%= link_to 'Add new group', new_group_path, class: "btn btn-success btn-lg btn-block" %>
+<% else %>
+<div class="row d-flex align-items-center justify-content-around bg-light " style="height:250px;">
+<%= link_to 'Sign in',  new_session_path , class: ' col-7 p-2  btn btn-primary border-bottom'%>
+<%= link_to 'Sign Up',  new_user_path ,class: ' col-6 p-2 btn btn-primary mt-n10 ' %>
+</div>
+ <% end %>

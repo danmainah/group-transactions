@@ -1,0 +1,13 @@
+<div class="row d-flex align-items-center  bg-primary " style="height:400px;">
+<h3 class= 'd-flex justify-content-center mt-0 sticky-top text-white'> Welcome To Projects</h3>
+<%= form_with(model: user) do |form| %>
+  <div class="field d-flex justify-content-center text-white">
+    <%= form.label :username  %>
+    <%= form.text_field :username ,autocomplete: "name" %>
+  </div>
+
+  <div class="actions d-flex justify-content-center bg-primary mt-2">
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>

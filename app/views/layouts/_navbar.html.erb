@@ -1,0 +1,35 @@
+<nav class="navbar navbar-dark bg-primary">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <h3 class='nabar d-flex justify-content-start text-white'> Projects</h3>
+  </div>
+  
+</nav>
+<div class="collapse" id="navbarToggleExternalContent">
+  <div class="bg-light p-4">
+    
+     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+        <li class="nav-item">
+        <%= link_to 'My Projects', projects_path  , class: "nav-link active d-flex justify-content-center"%>
+        </li>
+        <li class="nav-item d-flex justify-content-center">
+           <%= link_to 'My Extra Projects', grouped_path , class: "nav-link active d-flex justify-content-center"%>
+        </li>
+        <li class="nav-item d-flex justify-content-center">
+           <%= link_to 'My Groups',  groups_path , class: "nav-link active d-flex justify-content-center"%>
+        </li>
+        <li class="nav-item d-flex justify-content-center">
+           <a class="nav-link" href="#">
+           <% if current_user %>
+               <%= link_to 'Sign out', session_path(current_user.id), method: :delete %>
+           <% else %>
+             <%= link_to 'Sign in', new_session_path %>
+           <% end %>
+           </a>
+        </li>
+      </ul>
+  </div>
+</div>
+
